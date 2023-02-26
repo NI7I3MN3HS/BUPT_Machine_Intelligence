@@ -1,1 +1,1 @@
-# BUPT_Machine_Intelligence
+# BUPT机器智能课设代码仓库

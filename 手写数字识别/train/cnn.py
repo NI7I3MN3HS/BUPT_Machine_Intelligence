@@ -33,7 +33,7 @@ class CNN(nn.Module):
 # 设置训练参数
 batch_size = 64
 learning_rate = 0.003
-num_epochs = 10
+num_epochs = 15
 
 # 加载MNIST数据集
 transform = transforms.Compose(

@@ -7,19 +7,11 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
-    <style>
-      .container {
-        text-align: center;
-      }
-      .btn {
-        margin-top: 10px;
-      }
-    </style>
   </head>
   <body>
     <div class="container">
       <h1 class="title">八数码问题求解</h1>
-      <form action="{{ url_for('solve') }}" method="POST">
+      <form action="{{ url_for('solve') }}" method="POST" onsubmit="return validateInput()">
         <label for="start_state">初始状态：</label>
         <input type="text" name="start_state" id="start_state" required />
         <br />
@@ -62,12 +54,7 @@
     {% endif %}
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script>
-      function clearStates() {
-        document.getElementById('start_state').value = '';
-        document.getElementById('target_state').value = '';
-      }
-    </script>
   </body>
 </html>
+
 

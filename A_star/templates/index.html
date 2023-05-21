@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>八数码问题</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>八数码问题求解</h1>
+    <form action="{{ url_for('solve') }}" method="POST">
+      <label for="start_state">初始状态：</label>
+      <input type="text" name="start_state" id="start_state" required />
+      <br />
+      <label for="target_state">目标状态：</label>
+      <input type="text" name="target_state" id="target_state" required />
+      <br />
+      <input type="submit" value="求解" />
+      <button onclick="randomGenerate()">随机生成</button>
+    </form>
+
+    {% if result %}
+    <h2>求解结果：</h2>
+    <p>步数：{{ len(result) }}</p>
+    <div id="steps">
+      {% for step in result %}
+      <div class="step">
+        <p>Step #{{ step.step }}</p>
+        <table>
+          <tr>
+            <td>{{ step.state[0][0] }}</td>
+            <td>{{ step.state[0][1] }}</td>
+            <td>{{ step.state[0][2] }}</td>
+          </tr>
+          <tr>
+            <td>{{ step.state[1][0] }}</td>
+            <td>{{ step.state[1][1] }}</td>
+            <td>{{ step.state[1][2] }}</td>
+          </tr>
+          <tr>
+            <td>{{ step.state[2][0] }}</td>
+            <td>{{ step.state[2][1] }}</td>
+            <td>{{ step.state[2][2] }}</td>
+          </tr>
+        </table>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

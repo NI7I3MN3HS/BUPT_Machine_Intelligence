@@ -51,6 +51,9 @@
       </div>
       {% endfor %}
     </div>
+    {% else %}
+    <h2>求解结果如下</h2>
+    <p>无解</p>
     {% endif %}
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>

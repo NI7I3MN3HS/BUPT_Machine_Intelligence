@@ -3,11 +3,9 @@ from A_star import A_star
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def index():
     return render_template("index.html")
-
 
 @app.route("/solve", methods=["POST"])
 def solve():
@@ -16,16 +14,18 @@ def solve():
 
     is_solve, steps = A_star(start_state, target_state)
     if is_solve != 0:
-        result = "无解"
+        result = None
+        error_message = "无解"
     else:
         result = []
         for i in range(len(steps)):
             result.append(
                 {"step": i + 1, "state": [steps[i][:3], steps[i][3:6], steps[i][6:]]}
             )
+        error_message = None
 
-    return render_template("index.html", result=result)
-
+    return render_template("index.html", result=result, error_message=error_message)
 
 if __name__ == "__main__":
     app.run(debug=True)
+

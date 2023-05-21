@@ -7,23 +7,34 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
+    <style>
+      .container {
+        text-align: center;
+      }
+      .btn {
+        margin-top: 10px;
+      }
+    </style>
   </head>
   <body>
-    <h1>八数码问题求解</h1>
-    <form action="{{ url_for('solve') }}" method="POST">
-      <label for="start_state">初始状态：</label>
-      <input type="text" name="start_state" id="start_state" required />
-      <br />
-      <label for="target_state">目标状态：</label>
-      <input type="text" name="target_state" id="target_state" required />
-      <br />
-      <input type="submit" value="求解" />
-      <button onclick="randomGenerate()">随机生成</button>
-    </form>
+    <div class="container">
+      <h1 class="title">八数码问题求解</h1>
+      <form action="{{ url_for('solve') }}" method="POST">
+        <label for="start_state">初始状态：</label>
+        <input type="text" name="start_state" id="start_state" required />
+        <br />
+        <label for="target_state">目标状态：</label>
+        <input type="text" name="target_state" id="target_state" required />
+        <br />
+        <input type="submit" value="求解" class="btn" />
+        <button onclick="randomGenerate()" class="btn">随机生成</button>
+        <button onclick="clearStates()" class="btn">清空</button>
+      </form>
+    </div>
 
     {% if result %}
-    <h2>求解结果：</h2>
-    <p>步数：{{ len(result) }}</p>
+    <h2>求解结果如下</h2>
+    <p>步数：{{ result|length }}</p>
     <div id="steps">
       {% for step in result %}
       <div class="step">
@@ -51,5 +62,12 @@
     {% endif %}
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+      function clearStates() {
+        document.getElementById('start_state').value = '';
+        document.getElementById('target_state').value = '';
+      }
+    </script>
   </body>
 </html>
+

@@ -20,15 +20,15 @@ function validateInput() {
   var targetInput = document.getElementById("target_state");
   var startValue = startInput.value;
   var targetValue = targetInput.value;
-  var validPattern = /^[0-8]{9}$/;
+  var validPattern = /^(?!.*(.).*\1)[0-8]{9}$/;
 
   if (!validPattern.test(startValue)) {
-    displayErrorMessage(startInput, "初始状态必须由0至8的9个数字组成");
+    displayErrorMessage(startInput, "初始状态必须由0至8的9个不重复数字组成");
     return false;
   }
 
   if (!validPattern.test(targetValue)) {
-    displayErrorMessage(targetInput, "目标状态必须由0至8的9个数字组成");
+    displayErrorMessage(targetInput, "目标状态必须由0至8的9个不重复数字组成");
     return false;
   }
 

@@ -11,53 +11,130 @@
   <body>
     <div class="container">
       <h1 class="title">八数码问题求解</h1>
-      <form action="{{ url_for('solve') }}" method="POST" onsubmit="return validateInput()">
+      <form
+        action="{{ url_for('solve') }}"
+        method="POST"
+        onsubmit="return prepareAndValidateInput()"
+      >
         <label for="start_state">初始状态：</label>
-        <input type="text" name="start_state" id="start_state" required />
+        <table id="start_state">
+          <tr>
+            <td>
+              <input type="text" name="start_state_0" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="start_state_1" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="start_state_2" maxlength="1" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" name="start_state_3" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="start_state_4" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="start_state_5" maxlength="1" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" name="start_state_6" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="start_state_7" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="start_state_8" maxlength="1" required />
+            </td>
+          </tr>
+        </table>
+        <div id="start_state_error" class="error-message"></div>
         <br />
         <label for="target_state">目标状态：</label>
-        <input type="text" name="target_state" id="target_state" required />
+        <table id="target_state">
+          <tr>
+            <td>
+              <input type="text" name="target_state_0" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="target_state_1" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="target_state_2" maxlength="1" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" name="target_state_3" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="target_state_4" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="target_state_5" maxlength="1" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" name="target_state_6" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="target_state_7" maxlength="1" required />
+            </td>
+            <td>
+              <input type="text" name="target_state_8" maxlength="1" required />
+            </td>
+          </tr>
+        </table>
+        <div id="target_state_error" class="error-message"></div>
         <br />
+        <input type="hidden" name="start_state" id="start_state_string" />
+        <input type="hidden" name="target_state" id="target_state_string" />
         <input type="submit" value="求解" class="btn" />
-        <button onclick="randomGenerate(); return false;" class="btn">随机生成</button>
+        <button onclick="randomGenerate(); return false;" class="btn">
+          随机生成
+        </button>
         <button onclick="clearStates()" class="btn">清空</button>
       </form>
     </div>
-
-    {% if result %}
+    {% if result is defined %} {% if result %}
     <h2>求解结果如下</h2>
     <p>步数：{{ result|length }}</p>
     <div id="steps">
       {% for step in result %}
       <div class="step">
         <p>Step #{{ step.step }}</p>
-        <table>
-          <tr>
-            <td>{{ step.state[0][0] }}</td>
-            <td>{{ step.state[0][1] }}</td>
-            <td>{{ step.state[0][2] }}</td>
-          </tr>
-          <tr>
-            <td>{{ step.state[1][0] }}</td>
-            <td>{{ step.state[1][1] }}</td>
-            <td>{{ step.state[1][2] }}</td>
-          </tr>
-          <tr>
-            <td>{{ step.state[2][0] }}</td>
-            <td>{{ step.state[2][1] }}</td>
-            <td>{{ step.state[2][2] }}</td>
-          </tr>
-        </table>
+        <div class="Show">
+          <table>
+            <tr>
+              <td>{{ step.state[0][0] }}</td>
+              <td>{{ step.state[0][1] }}</td>
+              <td>{{ step.state[0][2] }}</td>
+            </tr>
+            <tr>
+              <td>{{ step.state[1][0] }}</td>
+              <td>{{ step.state[1][1] }}</td>
+              <td>{{ step.state[1][2] }}</td>
+            </tr>
+            <tr>
+              <td>{{ step.state[2][0] }}</td>
+              <td>{{ step.state[2][1] }}</td>
+              <td>{{ step.state[2][2] }}</td>
+            </tr>
+          </table>
+        </div>
       </div>
       {% endfor %}
     </div>
     {% else %}
     <h2>求解结果如下</h2>
     <p>无解</p>
-    {% endif %}
+    {% endif %} {% endif %}
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>
-
-

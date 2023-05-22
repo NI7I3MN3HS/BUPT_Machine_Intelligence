@@ -1,62 +1,62 @@
 body {
-    background-color: #f7f7f7;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  background-color: #f7f7f7;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    text-align: center;
-    margin-top: 150px;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-    color: #333;
-    font-size: 48px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: #333;
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 form {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 label {
-    font-size: 18px;
-    margin-bottom: 10px;
-    display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
 }
 
 input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 300px;
-    margin-bottom: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 50px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 30px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-    margin-right: 10px;
-    margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 30px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .btn:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .error-message {
@@ -64,17 +64,17 @@ input[type="text"] {
 }
 
 h2 {
-    color: #333;
-    font-size: 36px;
-    margin-bottom: 20px;
-    text-align: center;
+  color: #333;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 p {
-    color: #666;
-    font-size: 18px;
-    margin-bottom: 40px;
-    text-align: center;
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 table {
@@ -82,11 +82,27 @@ table {
   border-collapse: collapse;
 }
 
-table td {
+.Show td {
   width: 30px;
   height: 30px;
   border: 1px solid #000;
   text-align: center;
+}
+
+.container td {
+  position: relative; /* 相对定位 */
+  padding: 0; /* 去掉内边距 */
+}
+
+.state-input {
+  /* 其他样式... */
+  position: absolute; /* 绝对定位 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%; /* 填充整个单元格 */
+  height: 100%; /* 填充整个单元格 */
 }
 
 #steps {
@@ -98,4 +114,24 @@ table td {
 .step {
   margin: 10px;
   text-align: center;
+}
+
+.state-input {
+  width: 50px; /* 更大的宽度 */
+  height: 50px; /* 更大的高度 */
+  text-align: center;
+  border: 1px solid #ccc;
+  margin: 5px; /* 增大外边距 */
+  padding: 5px;
+  font-size: 24px; /* 更大的字体 */
+}
+
+.state-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff; /* 更大的焦点阴影 */
+}
+
+.input-row {
+  display: flex;
+  justify-content: center;
 }

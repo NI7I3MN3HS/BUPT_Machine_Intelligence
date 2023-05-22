@@ -18,8 +18,6 @@ python app.py
 ```
 ├── A_star.py
 ├── README.md
-├── __pycache__
-│   └── A_star.cpython-39.pyc
 ├── app.py
 ├── static
 │   ├── script.js

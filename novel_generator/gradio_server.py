@@ -214,7 +214,7 @@ def on_select(instruction1, instruction2, instruction3, evt: gr.SelectData):
 
 
 with gr.Blocks(
-    title="RecurrentGPT", css="footer {visibility: hidden}", theme="default"
+    title="AI小说生成器", css="footer {visibility: hidden}", theme="default"
 ) as demo:
     gr.Markdown(
         """

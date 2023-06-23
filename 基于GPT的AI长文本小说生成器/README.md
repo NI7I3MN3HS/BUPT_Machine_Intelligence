@@ -34,11 +34,16 @@ python gradio_server.py
 ## 2. 项目结构
 
 ```
+├── 1.png
+├── 2.png
+├── 3.png
 ├── README.md
 ├── gradio_server.py
 ├── human_simulator.py
 ├── recurrentgpt.py
-└── utils.py
+├── utils.py
+├── 实验报告.md
+└── 实验报告.pdf
 ```
 
 ## 3. 其他事项

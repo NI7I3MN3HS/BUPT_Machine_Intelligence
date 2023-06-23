@@ -2,6 +2,8 @@ import re
 import openai
 
 openai.api_key="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"
+#备用API_KEY
+#openai.api_key = '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'
 
 # 用于向 OpenAI GPT 模型发送请求并获取生成的文本响应
 def get_api_response(content: str, max_tokens=None):
